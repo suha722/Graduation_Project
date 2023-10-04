@@ -21,6 +21,11 @@ table{
   border-radius: 5%;
   margin-top: 50px;
 }
+a{
+  text-decoration: none;
+  color: black;
+  font-weight: 700;
+}
     </style>
   </head>
 
@@ -29,12 +34,7 @@ table{
 
  
   <table align="center" cellpadding = "10">
-    <tr>
-      <td>link</td>
-      <td><a href="{{ url_for('files', keyId=keyId) }}">Facture</a></td>
-     
   
-    </tr> 
   <tr>
     <td> DEPARTMENT </td>
     <td>
@@ -83,16 +83,10 @@ table{
       <b> {{mark}} </b>
     </td>
   </tr>
+
   <tr>
     <td> CERTIFICATE  </td>
-    <td>
-      <img src="data:image/jpeg;base64,{{ certfile }}" alt="img_data"  id="imgslot"/>
-
-    </td>
-  </tr>
-
-  <tr>
-    <td><a href="{{ url_for('files', keyId=keyId) }}">Facture</a></td>
+    <td><button><a href="{{ url_for('files', keyId=keyId) }}">Click here to upload your certificate</a></button></td>
    
 
   </tr>
@@ -100,7 +94,7 @@ table{
   <tr>
     <td> PERSONALITY </td>
     <td>
-      <b> {{personalitye}} </b>
+      <b> {{personality}} </b>
     </td>
   </tr>
  </table>

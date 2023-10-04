@@ -79,7 +79,7 @@ def getBlockByKey(key):
 					end_date = data["EndDate"]
 					mark = data["Mark"]
 					certfile = data["CertificateFile"]
-					personalitye = data["Personality"]
+					personality = data["Personality"]
 
 		return {
 			"department": department,
@@ -90,7 +90,7 @@ def getBlockByKey(key):
 			"end_date": end_date,
 			"mark": mark,
 			"certfile": certfile,
-			"personalitye": personalitye,
+			"personality": personality,
 		}
 
 
@@ -101,7 +101,7 @@ def success():
 	block = getBlockByKey(key=key)	
 	
 	if block:
-		return render_template('success.html',keyId=key, department=block["department"], studentname=block["student_name"], academicyear=block["academic_year"], regnum=block["regnum"], joiningdate=block["joining_date"], enddate=block["end_date"], mark=block["mark"], certfile=block["certfile"], personalitye=["personalitye"])
+		return render_template('success.html',keyId=key, department=block["department"], studentname=block["student_name"], academicyear=block["academic_year"], regnum=block["regnum"], joiningdate=block["joining_date"], enddate=block["end_date"], mark=block["mark"], certfile=block["certfile"], personality=block["personality"])
 	else:
 		return render_template('fraud.html')
 
@@ -125,12 +125,12 @@ def addcertificate():
 		  
 		certfile = base64.b64encode(file.read()).decode()
 
-		personalitye = request.form["personalitye"]
+		personality = request.form["personality"]
 
 		
-		print(department, studentname, academicyear, regnum, joiningdate, enddate, mark, certfile, personalitye)
+		print(department, studentname, academicyear, regnum, joiningdate, enddate, mark, certfile, personality)
 		bc = BlockChain()
-		bc.addCertificate(department, studentname, academicyear, regnum, joiningdate, enddate, mark, certfile, personalitye)
+		bc.addCertificate(department, studentname, academicyear, regnum, joiningdate, enddate, mark, certfile, personality)
 		
 		flash("Certificate added successfully to the Blockchain")
 		# return render_template('home.html')
